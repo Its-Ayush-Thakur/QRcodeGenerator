@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="phone.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="heading">
+                <h2>QR CODE GENERATOR</h2>
+            </div>
+            <div class="main">
+                <h3>Enter url to generate QR code</h3>
+                <input placeholder="Enter url and name" class="hu" id="input" type="text" value="">
+                <button onclick="generateImg(url)" id="btn">Generate</button>
+                <img id="QrImg" src="" alt="QR">
+            </div>
+        </div>
+    </div>
+    <script>
+        let url = document.getElementById("input");
+        let Qrurl = document.getElementById("QrImg");
+        function generateImg(url) {
+
+            let imgUrl = 'https://quickchart.io/qr?text=' + url.value;
+            if (url.value.trim().length >= 1) {
+                Qrurl.src = imgUrl;
+                Qrurl.style.height = '160px';
+                document.getElementById("input").classList.remove("inp");
+            }
+            else {
+                document.getElementById("input").classList.add("inp");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
